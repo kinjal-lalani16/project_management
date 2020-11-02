@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report 
+        id="ticket_report_view"
+        string="Helpdesk Ticket Report"
+        model="helpdesk.ticket.report" 
+        report_type="qweb-pdf"
+        file="sale_helpdesk_extend.ticket_report_template" 
+        name="sale_helpdesk_extend.ticket_report_template" 
+    />
+    
+</odoo>

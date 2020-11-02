@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Form view of Helpdesk Subtype -->
+    <record id="sale_helpdesk_subtype_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.subtype.view.form</field>
+        <field name="model">helpdesk.subtype</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </group>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Helpdesk Subtype -->
+    <record id="sale_helpdesk_subtype_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.subtype.view.tree</field>
+        <field name="model">helpdesk.subtype</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Menu Action Helpdesk Subtype -->
+    <record id="helpdesk_subtype_menu_action" model="ir.actions.act_window">
+        <field name="name">Subtype</field>
+        <field name="res_model">helpdesk.subtype</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Helpdesk Subtype -->
+    <menuitem id="helpdesk_subtype_menu" name="Subtype" action="helpdesk_subtype_menu_action"
+        sequence="1" parent="helpdesk.helpdesk_menu_config"/>
+
+</odoo>

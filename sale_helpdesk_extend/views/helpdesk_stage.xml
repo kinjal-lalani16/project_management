@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Inherited view of account.analytic.line' for filter and groupby purpose Stage -->
+    <record id="sale_helpdesk_stage_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.stage</field>
+        <field name="model">helpdesk.stage</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_stage_view_form"/>
+        <field name="arch" type="xml">
+            <field name="fold" position="after">
+                <field name="is_solved"/>
+            </field>
+        </field>
+    </record>
+</odoo>

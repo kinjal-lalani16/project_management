@@ -1,0 +1,17 @@
+<odoo>
+    <record id="hr_timesheet_line_search_inherit_groupby" model="ir.ui.view">
+        <field name="name">account.analytic.line.search</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="/search" position="inside">
+                <field name="subtype_filter_id" string="Subtype"/>
+                <field name="ticket_filter_type_id" string="Ticket Type"/>
+            </xpath>   
+            <xpath expr="//group" position="inside">
+                <filter string="Subtype" name="subtype_id_filter" domain="[]" context="{'group_by':'subtype_filter_id'}" help="using for group by in Sub Type  type"/>
+                <filter string="Ticket Type" name="ticket type filter" domain="[]" context="{'group_by':'ticket_filter_type_id'}" help="using for group by in Ticket type"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_police_type,access_police_type,sale_helpdesk_extend.model_police_type,,1,1,1,0
+access_police_type_erp,access_police_type_erp,sale_helpdesk_extend.model_police_type,base.group_erp_manager,1,1,1,1

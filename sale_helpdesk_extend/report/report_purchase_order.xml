@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="helpdesk_report_purchaseorder_document_inherit" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//div[hasclass('page')]" position="attributes">
+            <attribute name="style">font-size: 12px !important;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_structure')][2]" position="before">
+            <t t-if="o._get_po_terms_conditions()">
+                <p t-esc="o._get_po_terms_conditions()"/>
+            </t>
+        </xpath>
+        <xpath expr="//table[1]/thead/tr/th[2]" position="replace"/>
+        <xpath expr="//table[1]/thead/tr/th[2]" position="replace"/>
+        <xpath expr="//table[1]/tbody/tr/td[2]" position="replace"/>
+        <xpath expr="//table[1]/tbody/tr/td[2]" position="replace"/>
+    </template>
+
+    <template id="helpdesk_report_purchasequotation_document_inherit" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//div[hasclass('page')]" position="attributes">
+            <attribute name="style">font-size: 12px !important;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_structure')][2]" position="before">
+            <t t-if="o._get_po_terms_conditions()">
+                <p t-esc="o._get_po_terms_conditions()"/>
+            </t>
+        </xpath>
+        <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+        <xpath expr="//table/tbody/tr/td[2]" position="replace"/>
+    </template>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Inherited form view of Helpdesk Ticket -->
+    <record id="project_task_amount_view" model="ir.ui.view">
+        <field name="name">project_task_amount</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+			<xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="task_amount" string="Task Amount" widget="monetary"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

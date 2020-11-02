@@ -1,0 +1,248 @@
+<section class="oe_container">
+    <div class="oe_row oe_centered">
+        <div class="oe_span_10 oe_centered">
+            <h4 class="oe_slogan" style="margin-left: 120px;">
+                <b><span class="fa fa-star fa-spin"></span>
+                Sale Helpdesk Extend</b>
+            </h4>
+        </div>
+    </div>
+
+    <p align="left">Using this module in helpdesk if we select the customer it will display the records in list who belongs to that customer and Is Sat field is set to true.A new field is added in helpdesk ticket stage if it is true then only mail functionality will run.A button is added in Helpdesk ticket form and on click of that wizard for mail will be opened and clicking send button mail will be sent.In Sales Quotation Line after setting product price if we update quantity it will not change updated price and discount in quotation line. Functionality of updating price and discount on change of quantity has been stopped.
+    </p>
+
+    <div class="oe_row oe_centered">
+        <div class="oe_span_10 oe_centered">
+            <h4 class="oe_slogan" style="margin-left: 120px;">
+                <b><span class="fa fa-star fa-spin"></span>
+                Prerequisites before Installation</b>
+            </h4>
+        </div>
+    </div>
+    <p align="left">No prerequisites required before installation.</p>
+
+
+    <div class="oe_row oe_centered">
+        <div class="oe_span_10 oe_centered">
+            <h4 class="oe_slogan" style="margin-left: 120px;"><b>
+                <span class="fa fa-star fa-spin"></span>
+                    Configurations</b>
+            </h4>
+        </div>
+    </div>
+    <p align="left">No configurations needed.</p>
+
+    <div class="oe_row oe_centered">
+        <div class="oe_span_10 oe_centered">
+            <h4 class="oe_slogan" style="margin-left: 120px;"><b>
+                <span class="fa fa-star fa-spin"></span>
+                    Step-By-Step Guidelines</b>
+            </h4>
+        </div>
+    </div>
+    <div class="oe_centered">
+        <p>When you will create Quotation/Sale Order in its line if quantity of the product will change then it will not affect the price or discount made on that product.</p>
+        <p>In this first image, ordered quantity,discount and unit price has been set for all the lines.</p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="sale.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>Now in this image when i am changing ordered quantity its discount and price remain as it is and it will not be changed.
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="sale_order.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>A new field has been added in contact form which is x_is_set which will be displayed in kanban view if it is set to true.</p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="kanban.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="view.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>Customer field has been made required in helpdesk ticket.</p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="required.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>When the customer field will be changed then related list of contacts will be displayed in client customer field..</p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="client_customer.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>Onchange of customer field, Project field will be set automatically and also Task field will be set based on lower sequence of status, if more than 2 tasks on the same stage then task with lower seuquence number will be set.</p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="project_task.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>When the customer field will be changed, list of contacts will be updated and contacts whose Is Sat is true will be fetched in the list.It will send the mail to the customers/contacts who are fetched in the list.
+        <p>Note: We have not display Email address of contacts as if email is long then view will get changed.</p>
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="list.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>It will send the mail if solved state is set to true in any one stage of helpdesk ticket.You can go there from configuration -> stages.
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="stages.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+    <div class="oe_centered">
+        <p>A solved button is added in helpdesk ticket view , if solved is not ticked in helpdesk ticket stage then it will throw a warning.If solved is true then it will open a wizard for mail so if usre wants to edit then mail can be sent.
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="solved_button.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="solved_warning.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="email_wizard.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="mail.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_centered">
+        <p>We have created report PDF as well Excel as below.
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="pdf_report_1.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="pdf_report_2.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="excel_report.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+     <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="sale.png" style="width: 100%;"/>
+        </div>
+    </div>
+     <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="sale.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_centered">
+        <p>If Company Type is Individual and Parent is selected on contact then Parent's Police Type's value will be set on Contact. 
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="policetype_contact.png" style="width: 100%;"/>
+        </div>
+    </div>
+     <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="policetype.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_centered">
+        <p>We have added the new field stage in form,tree and kanban view. 
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="added_stage_in_form.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="added_stage_in_tree.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_centered">
+        <p>We have added group by stage in kanban view.
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="group_by_with_kanban.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_centered">
+        <p>We have added a functionality that if project is created from the sale order then the project name should be like SO Number + Customer Reference.
+        </p>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="sale_order_for_project.png" style="width: 100%;"/>
+        </div>
+    </div>
+    <div class="oe_row oe_centered">
+        <div class="oe_span12">
+            <img src="new_project.png" style="width: 100%;"/>
+        </div>
+    </div>
+
+<!-- Don't Remove Below Part -->
+   <div class="oe_span12">
+        <h2 class="oe_slogan">
+            <a href="http://tundra-consulting.com/" target="new">
+                <img src="http://www.tundra-consulting.com/wp-content/uploads/2013/07/cropped-logo_tundra-consulting.jpg"/>
+            </a>
+            <br/>
+            <a href="mailto:sales@itundra.com" style="color: #000000 !important;">
+                        Get Help &amp; Support
+            </a>
+        </h2>
+        <div class="oe_slogan oe_spaced text-center">
+            <a class="btn btn success mt8" title="website" target="new" style="background-color:#ff4040;  color: #ffffff; !important;       position:relative; overflow: hidden;" href="http://tundra-consulting.com/"><b>Website</b></a>
+            <a class="btn btn success mt8" title="Contact Us" style="background-color:#ff4040; color: #ffffff; !important; position:relative; overflow: hidden;" href="mailto:sales@itundra.com"><b>Contact Us</b></a>
+            <a class="btn btn success mt8" title="Request New Features Now!" style="background-color:#ff4040; color: #ffffff; !important; position:relative; overflow: hidden;" href="mailto:sales@itundra.com"><b>Request For New Features</b></a>
+        </div>
+    </div>
+</section>

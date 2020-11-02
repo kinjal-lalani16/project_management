@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_standard" inherit_id="web.external_layout_standard">
+        <!-- Add vat in header -->
+        <xpath expr="//div[@name='company_address']/span" position="after">
+            <span t-field="company.vat"
+                style="border-bottom: 1px solid black; display:inline-block;"
+            />
+        </xpath>
+
+        <!-- Reduce Font size for footer-->
+        <xpath expr="//div[hasclass('footer')]" position="attributes">
+            <attribute name="style">font-size: 9px;</attribute>
+        </xpath>
+    </template>
+
+    <template id="ticket_report_template">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <center>
+                        <h4 class="text-center">
+                            <strong>
+                                Helpdesk Ticket Report From&#160;
+                                <span t-field="o.start_date"/>
+                                &#160;To &#160;
+                                <span t-field="o.end_date"/>
+                                <br/>
+                                <h4 t-if="o.partner_ids">(<t t-foreach="o.get_partners()" t-as="partner">
+                                    <span t-esc="partner.name"/>, </t>)
+                                </h4>
+                            </strong>
+                        </h4>
+                    </center>
+                    <t t-if="not o.report_type or o.report_type == 'internal'">
+                    <table class="table table-bordered" style="width: 50%;">
+                        <thead>
+                            <tr style="background-color: #eee;">
+                                <th>Description</th>
+                                <th>Ticket Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>Created</span>
+                                </td>
+                                <td>
+                                    <span t-esc="o.get_period_ticket('created')"/>
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td>
+                                    <span>Closed</span>
+                                </td>
+                                <td>
+                                    <span t-esc="o.get_period_ticket('closed')"/>
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td>
+                                    <span>Open</span>
+                                </td>
+                                <td>
+                                    <span t-esc="o.get_period_ticket('open')"/>
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td>
+                                    <span>Total Open</span>
+                                </td>
+                                <td>
+                                    <span t-esc="o.get_open_ticket()"/>
+                                </td>
+                            </tr> 
+                        </tbody>
+                    </table>
+
+                    <!-- Add Stage wise ticket details -->
+                    <table class="table table-bordered" style="width: 50%;">
+                        <thead>
+                            <tr style="background-color: #eee;">
+                                <th>Stage Name</th>
+                                <th>Ticket Count</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <t t-foreach="o.get_stage()" t-as="stage">
+                                <tr>
+                                    <td>
+                                        <span t-esc="stage.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.get_ticket_stage_count(stage)"/>
+                                    </td>
+                                </tr>  
+                            </t>
+                            <tr>
+                                <td>
+                                    <span>Total Open</span>
+                                </td>
+                                <td>
+                                    <span t-esc="o.get_open_ticket()"/>
+                                </td>
+                            </tr> 
+                        </tbody>
+                    </table>
+                    </t>
+
+                    <!-- Ticket information with details based on stage -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr style="background-color: #eee;">
+                                <th>Ticket type</th>
+                                <th>No of Tickets</th>
+                                <th>Sum hours dedicated</th>
+                                <th>% Hours (to total)</th>
+                                <t t-if="not o.report_type or o.report_type == 'internal'">
+                                    <th>Avg ticket/day </th>
+                                    <th>Avg hours/day </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="total_ticket_type_count" t-value="0"/>
+                            <t t-set="total_ticket_sum_hours" t-value="0"/>
+                            <t t-set="total_ticket_sum_hours_dedicate_per" t-value="0"/>
+                            <t t-set="total_ticket_avg_day" t-value="0"/>
+                            <t t-set="total_ticket_avg_hours" t-value="0"/>
+                            <t t-foreach="o.get_ticket_type()" t-as="ticket_type">
+                                <tr>
+                                    <td class="text-center">
+                                        <span t-esc="ticket_type.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="o.get_ticket_ticket_type_count(ticket_type)"/>
+                                        <t t-set="total_ticket_type_count" t-value="total_ticket_type_count + o.get_ticket_ticket_type_count(ticket_type)"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="'%02d:%02d' % (int(float(o.get_ticket_sum_hours_dedicate(ticket_type))), float(o.get_ticket_sum_hours_dedicate(ticket_type)) % 1 * 60)" />
+                                        <t t-set="total_ticket_sum_hours" t-value="total_ticket_sum_hours + o.get_ticket_sum_hours_dedicate(ticket_type)"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="'%.2f' % (o.get_ticket_sum_hours_dedicate_per(ticket_type))"/> %
+                                        <t t-set="total_ticket_sum_hours_dedicate_per" t-value="total_ticket_sum_hours_dedicate_per + o.get_ticket_sum_hours_dedicate_per(ticket_type)"/> 
+                                    </td>
+                                    <t t-if="not o.report_type or o.report_type == 'internal'">
+                                        <td class="text-center">
+                                            <span t-esc="'%.2f' % (o.get_ticket_avg_day(ticket_type))"/>
+                                            <t t-set="total_ticket_avg_day" t-value="total_ticket_avg_day + o.get_ticket_avg_day(ticket_type)"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="'%02d:%02d' % (int(float(o.get_ticket_avg_hours(ticket_type))), float(o.get_ticket_avg_hours(ticket_type)) % 1 * 60)" />
+                                            <t t-set="total_ticket_avg_hours" t-value="total_ticket_avg_hours + o.get_ticket_avg_hours(ticket_type)"/>
+                                        </td>
+                                    </t>
+                                </tr>  
+
+                            </t>
+                                <tr>
+                                    <td>
+                                        <b>Totals:</b>
+                                    </td>
+                                    <td  class="text-center">
+                                        <strong><span t-esc="total_ticket_type_count"/></strong>
+                                    </td>
+                                    <td  class="text-center">
+                                        <strong><span t-esc="'%02d:%02d' % (int(float(total_ticket_sum_hours)), float(total_ticket_sum_hours) % 1 * 60)" /></strong>
+                                    </td>
+                                    <td  class="text-center">
+                                        <strong><span t-esc="'%.2f' % (total_ticket_sum_hours_dedicate_per)"/> %</strong>
+                                    </td>
+                                    <t t-if="not o.report_type or o.report_type == 'internal'">
+                                        <td  class="text-center">
+                                            <strong><span t-esc="'%.2f' % (total_ticket_avg_day)"/></strong>
+                                        </td>
+                                        <td  class="text-center">
+                                            <strong><span t-esc="'%02d:%02d' % (int(float(total_ticket_avg_hours)), float(total_ticket_avg_hours) % 1 * 60)" /></strong>
+                                        </td>
+                                    </t>
+                                </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Ticket information with details based on Subtype -->
+                    <t t-if="o.get_subtypes()">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr style="background-color: #eee;">
+                                    <th>Subtypes</th>
+                                    <th>No of Tickets</th>
+                                    <th>Sum hours dedicated</th>
+                                    <th>% Hours (to total)</th>
+                                    <t t-if="not o.report_type or o.report_type == 'internal'">
+                                        <th>Avg ticket/day </th>
+                                        <th>Avg hours/day </th>
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="total_subtype_type_count" t-value="0"/>
+                                <t t-set="total_subtype_sum_hours" t-value="0"/>
+                                <t t-set="total_subtype_sum_hours_dedicate_per" t-value="0"/>
+                                <t t-set="total_subtype_avg_day" t-value="0"/>
+                                <t t-set="total_subtype_avg_hours" t-value="0"/>
+                                <t t-foreach="o.get_subtypes()" t-as="subtype">
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="subtype.name"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="o.get_subtype_count(subtype.id)"/>
+                                            <t t-set="total_subtype_type_count" t-value="total_subtype_type_count + o.get_subtype_count(subtype.id)"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="'%02d:%02d' % (int(float(o.get_subtype_sum_hours_dedicate(subtype.id))), float(o.get_subtype_sum_hours_dedicate(subtype.id)) % 1 * 60)" />
+                                            <t t-set="total_subtype_sum_hours" t-value="total_subtype_sum_hours + o.get_subtype_sum_hours_dedicate(subtype.id)"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="'%.2f' % (o.get_subtype_sum_hours_dedicate_per(subtype.id))"/> %
+                                            <t t-set="total_subtype_sum_hours_dedicate_per" t-value="total_subtype_sum_hours_dedicate_per + o.get_subtype_sum_hours_dedicate_per(subtype.id)"/> 
+                                        </td>
+                                        <t t-if="not o.report_type or o.report_type == 'internal'">
+                                        <td class="text-center">
+                                            <span t-esc="'%.2f' % (o.get_subtype_avg_day(subtype.id))"/>
+                                            <t t-set="total_subtype_avg_day" t-value="total_subtype_avg_day + o.get_subtype_avg_day(subtype.id)"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="'%02d:%02d' % (int(float(o.get_subtype_avg_hours(subtype.id))), float(o.get_subtype_avg_hours(subtype.id)) % 1 * 60)" />
+                                            <t t-set="total_subtype_avg_hours" t-value="total_subtype_avg_hours + o.get_subtype_avg_hours(subtype.id)"/>
+                                        </td>
+                                        </t>
+                                    </tr>  
+
+                                </t>
+                                    <tr>
+                                        <td>
+                                            <b>Totals:</b>
+                                        </td>
+                                        <td  class="text-center">
+                                            <strong><span t-esc="total_subtype_type_count"/></strong>
+                                        </td>
+                                        <td  class="text-center">
+                                            <strong><span t-esc="'%02d:%02d' % (int(float(total_subtype_sum_hours)), float(total_subtype_sum_hours) % 1 * 60)" /></strong>
+                                        </td>
+                                        <td  class="text-center">
+                                            <strong><span t-esc="'%.2f' % (total_subtype_sum_hours_dedicate_per)"/> %</strong>
+                                        </td>
+                                        <t t-if="not o.report_type or o.report_type == 'internal'">
+                                        <td  class="text-center">
+                                            <strong><span t-esc="'%.2f' % (total_subtype_avg_day)"/></strong>
+                                        </td>
+                                        <td  class="text-center">
+                                            <strong><span t-esc="'%02d:%02d' % (int(float(total_subtype_avg_hours)), float(total_subtype_avg_hours) % 1 * 60)" /></strong>
+                                        </td>
+                                        </t>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                    <p style="page-break-before:always;"/>
+                    <t t-foreach="o.get_partners()" t-as="partner">
+                        <div class="row mt32 mb32 text-center">
+                            <div class="col-xs-2">
+                                <strong>Customer Name:</strong>
+                                <p t-field="partner.name"/>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <strong>Total Time:</strong>
+                                <p t-esc="'%02d:%02d' % (int(o.calculate_total_time(partner)), o.calculate_total_time(partner) % 1 * 60)" />
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <strong>Average Time:</strong>
+                                <p t-esc="'%02d:%02d' % (int(float(o.calculate_average_time(partner))), float(o.calculate_average_time(partner)) % 1 * 60)" />
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Ticket</th>
+                                    <th>Customer</th>
+                                    <th>Assigned to</th>
+                                    <th>Helpdesk Team</th>
+                                    <th>Ticket Type</th>
+                                    <th>Created On</th>
+                                    <th>Close Date</th>
+                                    <th>Total Spent Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.get_tickets(partner)" t-as="ticket">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="ticket.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="ticket.partner_id.name"/>
+                                        </td>
+                                        <td >
+                                           <span t-esc="ticket.user_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="ticket.team_id.name"/>
+                                        </td>
+                                        <td >
+                                            <span t-esc="ticket.ticket_type_id.name"/>
+                                        </td>
+                                       <td >
+                                            <span t-esc="ticket.create_date" t-options="{'widget': 'date'}"/>
+                                        </td>
+                                        <td >
+                                            <span t-esc="ticket.close_date" t-options="{'widget': 'date'}"/>
+                                        </td>
+                                        <td  class="text-center">
+                                            <t t-esc="'%02d:%02d' % (int(ticket.total_time), ticket.total_time % 1 * 60)" />
+                                        </td>
+                                    </tr>  
+                                </t>
+                                <tr>
+                                    <td colspan="7" class="text-right">
+                                        <b>Total Time:</b>
+                                    </td>
+                                    <td  class="text-center">
+                                        <strong><p t-esc="'%02d:%02d' % (int(o.calculate_total_time(partner)), o.calculate_total_time(partner) % 1 * 60)" /></strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

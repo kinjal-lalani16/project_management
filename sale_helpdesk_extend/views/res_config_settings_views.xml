@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="res_config_settings_view_form_purchase" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.purchase.helpdesk</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='purchase']/div[1]" position="inside">
+            	<div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="use_purchase_note"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="use_purchase_note"/>
+                        <span class="fa fa-lg fa-building-o"/>
+                        <div class="text-muted">
+                            Show standard terms &amp; conditions on orders
+                        </div>
+                        <div class="content-group" attrs="{'invisible': [('use_purchase_note','=',False)]}">
+                            <div class="mt16">
+                                <field name="purchase_note" placeholder="Insert your terms &amp; conditions here..."/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Inherited view of Res Partner-->
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="lang" position="after">
+                <field name="total_time" widget="float_time" groups="helpdesk.group_helpdesk_user"/>
+                <field name="average_time" widget="float_time" groups="helpdesk.group_helpdesk_user"/>
+				<!-- VTB 05/03/20 Añado campo Tipo de cuerpo Policial -->
+				<field name="policetype_id"
+                       attrs="{'readonly': ['|', ('parent_id', '!=', False), ('company_type', '=', 'person')]}" string="Police Type"/>
+            </field>
+			<field name="zip" position="after">
+				<field name="region_id" string="Region"/>
+			</field>
+            <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/field[@name='comment']" position="after">
+                <field name="is_sat" attrs="{'invisible': [('type', '!=', 'contact')]}"/>
+				<field name="is_invoicing" attrs="{'invisible': [('type', '!=', 'contact')]}" string="Invoicing"/>
+				<field name="user_id" attrs="{'invisible': [('type', '!=', 'contact')]}"/> <!-- VTB 25/02/20 Añadido comercial en la vista a petición de Bibiana -->
+            </xpath>
+            <xpath expr="//notebook/page/field[@name='child_ids']/kanban/field[@name='name']" position="after">
+                <field name="is_sat" string="Is Sat"/>
+				<field name="is_invoicing" string="Invoicing"/>
+            </xpath>
+            <xpath expr="//notebook/page/field[@name='child_ids']/kanban/templates/t/div/div/field[@name='name']" position="after">
+               <div t-if="record.is_sat.raw_value">Is Sat</div>
+			   <div t-if="record.is_invoicing.raw_value">Invoicing</div>
+            </xpath>
+			<page name="sales_purchases" position="after">
+				<page string="Alphanet" name="alphanet" attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}">
+					<group>
+						<field name="alph_customer" string="Client Alphanet"/>
+						<field name="alph_customer_date" string ="Des de" widget="date" attrs="{'invisible': [('alph_customer','=',False)]}"/>
+						<field name="satisfaction" string="Satisfacció" attrs="{'invisible': [('alph_customer','=',False)]}"/>
+						<field name="useit" string="Usabilitat" attrs="{'invisible': [('alph_customer','=',False)]}"/>
+						<field name="category_id" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Públic, Privat..."/>
+						<!-- <field name="x_solutions" widget="many2many_tags"/>-->
+						<field name="disable_customer" string="Baixa Alphanet"/>
+					</group>
+				</page>
+			</page>
+        </field>
+    </record>
+	
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+			<field name="email" position="after">
+				<!-- <field name="x_comarca"/> -->
+				<field name="state_id"/>
+				<!-- VTB 05/03/20 Añado campo Tipo de cuerpo Policial -->
+				<field name="policetype_id" string="Police Type"/>
+				<field name="satisfaction" string="Satisfaction"/>
+				<field name="useit" string="Useit"/>
+				<!-- <field name="x_solutions"/> -->
+			</field>
+		</field>
+    </record>
+
+</odoo>

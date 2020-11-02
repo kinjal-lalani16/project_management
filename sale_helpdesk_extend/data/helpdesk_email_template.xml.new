@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Email Template for Helpdesk Ticket -->
+    <data noupdate="1">
+        <record id="helpdesk_mail_template" model="mail.template">
+            <field name="name">Helpdesk ticket closed</field>
+            <field name="email_to">${ctx['email_to']|safe}</field>
+            <field name="subject">Helpdesk Ticket (${object.name})  ${object.stage_id.name or 'Solved' | safe}  - ${object.partner_id.name}</field>
+            <field name="model_id" ref="model_helpdesk_ticket"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html" type="html">
+                <div>
+                <p>Dear ${ctx['name']|safe},<br/></p>
+                <p>
+                    This is to inform you that your ticket number- <strong>${object.name}</strong> has been ${object.stage_id.name or 'Solved' | safe} under the guidance of ${object.user_id.name or 'Administration' | safe}.<br/></p>
+                <p>Please let us know in case of any queries/issues related to this ticket.<br/></p>
+
+                <p>Thank You for contacting us.<br/></p>
+
+                <p>Regards, </p>
+                <p>${object.company_id.name}<br/>
+                </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

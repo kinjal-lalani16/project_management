@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Inherited form view of Project Task -->
+    <record id="project_task_inherit_view" model="ir.ui.view">
+        <field name="name">project_task_inherit_view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+			<xpath expr="//field[@name='user_id']" position="after">
+                <field name="sale_order_id" string="Sale Order"/>
+            </xpath>
+        </field>
+    </record>
+	
+	    <!-- Inherit Project Task tree view to add new field related to Sale Order. -->
+    <record id="helpdesk_ticket_view_list_inherit" model="ir.ui.view">
+        <field name="name">project_task_list_inherit_view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="sale_order_id" string="Sale Order"/>
+				<field name="task_amount" string="Task Amount" widget="monetary"  sum="Task Amount"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

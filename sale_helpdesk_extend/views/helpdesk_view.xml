@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Inherited form view of Helpdesk Ticket -->
+    <record id="sale_helpdesk_ticket_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="send_mail_contacts" string="Solved" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('id', '=', False),('stage_id', '=', False)]}"/>
+				<button name="notify_mail_contacts" string="Notify Contacts" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('id', '=', False),('partner_id', '=', False)]}"/>
+            </header>
+            <field name="partner_id" position='replace'>
+                <field name="partner_id" class="field_partner_id" domain="[('is_company','=',True)]" context="{'default_is_company': True}"/>
+			</field>
+			<!-- <field name="partner_id" position='before'>
+                <field name="contact_ids" string="Client Contact" domain="[('is_company','=',False)]" context="{'default_parent_id': partner_id}"/>
+			</field> -->
+            <field name="partner_id" position='after'>
+                <field name="contact_ids" string="Client Contact" domain="[('is_company','=',False)]" context="{'default_parent_id': partner_id}"/>
+                <field name="partner_ids" context="{'default_parent_id': partner_id, 'default_is_sat': 1}" attrs="{'invisible': [('partner_id', '=', False)]}">
+                    <tree string="Contacts">
+                        <field name="name"/>
+						<field name="email"/>
+						<field name="phone"/>
+						<field name="function"/>
+                    </tree>
+                </field>
+            </field>
+            <field name="partner_id" position='attributes'>
+                <attribute name="attrs">{'required': True}</attribute>
+            </field>
+            <field name="ticket_type_id" position='attributes'>
+                <attribute name="attrs">{'required': True}</attribute>
+            </field>
+			<field name="ticket_type_id" position='after'>
+				<field name="subtype_ids" string="Subtype Selection" invisible="1"/>
+				<field name="subtype_id" string="Subtype" required="True"/>
+			</field>
+
+            <field name="priority" position="after">
+                <field name="total_time"  widget="float_time" attrs="{'invisible': [('project_id', '=', False), ('timesheet_ids', '=', [])]}" groups="hr_timesheet.group_hr_timesheet_user"/>
+                <field name="sales_agent_id"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit helpdesk tree view to add new field related to time. -->
+    <record id="helpdesk_tickets_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.list.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="subtype_id"/>
+                <field name="create_date"/>
+                <field name="close_date"/>
+                <field name="total_time" widget="float_time"  sum="Total Time Spent"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

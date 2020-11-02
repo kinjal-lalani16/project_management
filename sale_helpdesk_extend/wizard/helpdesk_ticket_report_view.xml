@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form view of Helpdesk Ticket Report -->
+    <record id="view_helpdesk_ticket_report" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.report.form</field>
+        <field name="model">helpdesk.ticket.report</field>
+        <field name="arch" type="xml">
+             <form string="Helpdesk Ticket Report">
+                <form>
+                    <group>
+                        <group>
+                            <field name="partner_ids" widget="many2many_tags"/>
+                            <field name="report_type"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </form>
+                <footer>
+                    <button name="print_pdf" string="Print" type="object"
+                    class="btn-primary"/>
+                    <button name="print_xls" string='Print EXCEL' type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of Helpdesk Ticket Report -->
+    <record id="action_view_helpdesk_ticket_report" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.ticket.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menuitem for print report -->
+    <menuitem id="menu_helpdesk_ticket_report" name="Helpdesk Ticket Report" action="action_view_helpdesk_ticket_report" parent="helpdesk.helpdesk_ticket_report_menu_main" sequence="11"/>
+
+</odoo>

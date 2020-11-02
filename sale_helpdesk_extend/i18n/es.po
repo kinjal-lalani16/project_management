@@ -1,0 +1,733 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_helpdesk_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-25 13:00+0000\n"
+"PO-Revision-Date: 2020-03-25 13:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "% Hours (to total)"
+msgstr "% Hours (to total)"
+
+#. module: sale_helpdesk_extend
+#: selection:res.partner,satisfaction:0
+#: selection:res.partner,useit:0
+msgid "10"
+msgstr "10"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<b>Total Time:</b>"
+msgstr "<b>Total Time:</b>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<b>Totals:</b>"
+msgstr "<b>Totals:</b>"
+
+#. module: sale_helpdesk_extend
+#: model:mail.template,body_html:sale_helpdesk_extend.helpdesk_mail_template
+msgid "<div>\n"
+"                <p>Dear ${ctx['name']|safe},<br/></p>\n"
+"                <p>\n"
+"                    This is to inform you that your ticket number- <strong>${object.name}</strong> has been ${object.stage_id.name or 'Solved' | safe} under the guidance of ${object.user_id.name or 'Administration' | safe}.<br/></p>\n"
+"                <p>Please let us know in case of any queries/issues related to this ticket.<br/></p>\n"
+"\n"
+"                <p>Thank You for contacting us.<br/></p>\n"
+"\n"
+"                <p>Regards, </p>\n"
+"                <p>${object.company_id.name}<br/>\n"
+"                </p>\n"
+"                </div>\n"
+"            "
+msgstr "<div>\n"
+"                <p>Dear ${ctx['name']|safe},<br/></p>\n"
+"                <p>\n"
+"                    This is to inform you that your ticket number- <strong>${object.name}</strong> has been ${object.stage_id.name or 'Solved' | safe} under the guidance of ${object.user_id.name or 'Administration' | safe}.<br/></p>\n"
+"                <p>Please let us know in case of any queries/issues related to this ticket.<br/></p>\n"
+"\n"
+"                <p>Thank You for contacting us.<br/></p>\n"
+"\n"
+"                <p>Regards, </p>\n"
+"                <p>${object.company_id.name}<br/>\n"
+"                </p>\n"
+"                </div>\n"
+"            "
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<span>Closed</span>"
+msgstr "<span>Closed</span>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<span>Created</span>"
+msgstr "<span>Created</span>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<span>Open</span>"
+msgstr "<span>Open</span>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<span>Total Open</span>"
+msgstr "<span>Total Open</span>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<strong>Average Time:</strong>"
+msgstr "<strong>Average Time:</strong>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<strong>Customer Name:</strong>"
+msgstr "<strong>Customer Name:</strong>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "<strong>Total Time:</strong>"
+msgstr "<strong>Total Time:</strong>"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Alphanet"
+msgstr "Alphanet"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_alph_customer
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_alph_customer
+msgid "Alphanet Customer"
+msgstr "Alphanet Customer"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Altres"
+msgstr "Altres"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea Analítica"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Assigned to"
+msgstr "Asignada a"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_average_time
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_average_time
+msgid "Average Time"
+msgstr "Average Time"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Avg hours/day"
+msgstr "Avg hours/day"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Avg ticket/day"
+msgstr "Avg ticket/day"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Baixa Alphanet"
+msgstr "Baixa Alphanet"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_helpdesk_ticket_report
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Client Alphanet"
+msgstr "Client Alphanet"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.sale_helpdesk_ticket_view_form
+msgid "Client Contact"
+msgstr "Client Contact"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Close Date"
+msgstr "Close Date"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_partner_ids
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.sale_helpdesk_ticket_view_form
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Corrent / General"
+msgstr "Corrent / General"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Corrent / Tempesta"
+msgstr "Corrent / Tempesta"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Created On"
+msgstr "Created On"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype_create_uid
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_create_uid
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype_create_date
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_create_date
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_mrp_production_customer
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_partner_ids
+msgid "Customer Name"
+msgstr "Nombre del Cliente"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_alph_customer_date
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_alph_customer_date
+msgid "Customer since"
+msgstr "Customer since"
+
+#. module: sale_helpdesk_extend
+#: selection:project.project,stage:0
+msgid "Deliver-Training"
+msgstr "Deliver-Training"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Des de"
+msgstr "Des de"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Description"
+msgstr "Descripción"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_disable_customer
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_disable_customer
+msgid "Disabled"
+msgstr "Disabled"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype_display_name
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_display_name
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type_display_name
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_report_sale_helpdesk_extend_ticket_report_template_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: sale_helpdesk_extend
+#: code:addons/sale_helpdesk_extend/wizard/helpdesk_ticket_report.py:30
+#, python-format
+msgid "End date should be greater than start date."
+msgstr "End date should be greater than start date."
+
+#. module: sale_helpdesk_extend
+#: selection:project.project,stage:0
+msgid "Executed"
+msgstr "Executed"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_start_date
+msgid "From Date"
+msgstr "From Date"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Altres"
+msgstr "Hardware / Altres"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Armari de Bateries"
+msgstr "Hardware / Armari de Bateries"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Camera"
+msgstr "Hardware / Camera"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Comunicacions"
+msgstr "Hardware / Comunicacions"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / EC"
+msgstr "Hardware / EC"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Gravadors"
+msgstr "Hardware / Gravadors"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / IR"
+msgstr "Hardware / IR"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Monitors"
+msgstr "Hardware / Monitors"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / NAS"
+msgstr "Hardware / NAS"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Optica"
+msgstr "Hardware / Optica"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Radar"
+msgstr "Hardware / Radar"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Server"
+msgstr "Hardware / Server"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Switch"
+msgstr "Hardware / Switch"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Hardware / Videowall"
+msgstr "Hardware / Videowall"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Helpdesk Team"
+msgstr "Equipo de la mesa de ayuda"
+
+#. module: sale_helpdesk_extend
+#: model:mail.template,subject:sale_helpdesk_extend.helpdesk_mail_template
+msgid "Helpdesk Ticket (${object.name})  ${object.stage_id.name or 'Solved' | safe}  - ${object.partner_id.name}"
+msgstr "Helpdesk Ticket (${object.name})  ${object.stage_id.name or 'Solved' | safe}  - ${object.partner_id.name}"
+
+#. module: sale_helpdesk_extend
+#: model:ir.actions.act_window,name:sale_helpdesk_extend.action_view_helpdesk_ticket_report
+#: model:ir.actions.report,name:sale_helpdesk_extend.ticket_report_view
+#: model:ir.ui.menu,name:sale_helpdesk_extend.menu_helpdesk_ticket_report
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_helpdesk_ticket_report
+msgid "Helpdesk Ticket Report"
+msgstr "Helpdesk Ticket Report"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Helpdesk Ticket Report From"
+msgstr "Helpdesk Ticket Report From"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype_id
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_id
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type_id
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_report_sale_helpdesk_extend_ticket_report_template_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_is_sat
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_is_sat
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Is Sat"
+msgstr "Is Sat"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype___last_update
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report___last_update
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type___last_update
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_report_sale_helpdesk_extend_ticket_report_template___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype_write_uid
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_write_uid
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype_write_date
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_write_date
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_account_analytic_line_subtype_filter_id
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_contact_ids
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_subtype_id
+msgid "Main Contact"
+msgstr "Main Contact"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_mrp_production
+msgid "Manufacturing Order"
+msgstr "Orden de fabricación"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_subtype_name
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_police_type_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sale_helpdesk_extend
+#: selection:project.project,stage:0
+msgid "New"
+msgstr "New"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "No of Tickets"
+msgstr "No of Tickets"
+
+#. module: sale_helpdesk_extend
+#: code:addons/sale_helpdesk_extend/wizard/helpdesk_ticket_report.py:271
+#: code:addons/sale_helpdesk_extend/wizard/helpdesk_ticket_report.py:285
+#, python-format
+msgid "No ticket found."
+msgstr "No ticket found."
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.sale_helpdesk_ticket_view_form
+msgid "Notify Contacts"
+msgstr "Notify Contacts"
+
+#. module: sale_helpdesk_extend
+#: selection:project.project,stage:0
+msgid "On hold"
+msgstr "On hold"
+
+#. module: sale_helpdesk_extend
+#: selection:project.project,stage:0
+msgid "Planned"
+msgstr "Planificada"
+
+#. module: sale_helpdesk_extend
+#: code:addons/sale_helpdesk_extend/models/helpdesk_ticket.py:145
+#, python-format
+msgid "Please activate Solved feature from Helpdesk Stage."
+msgstr "Please activate Solved feature from Helpdesk Stage."
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_police_type
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_policetype_id
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_policetype_id
+#: model:ir.ui.menu,name:sale_helpdesk_extend.Police Type
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.police_type_view_form
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_tree
+msgid "Police Type"
+msgstr "Police Type"
+
+#. module: sale_helpdesk_extend
+#: model:ir.actions.act_window,name:sale_helpdesk_extend.police_type_action
+msgid "Police Type Details"
+msgstr "Police Type Details"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_helpdesk_ticket_report
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_helpdesk_ticket_report
+msgid "Print EXCEL"
+msgstr "Print EXCEL"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_project_project
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Públic, Privat..."
+msgstr "Públic, Privat..."
+
+#. module: sale_helpdesk_extend
+#: selection:project.project,stage:0
+msgid "Quality Control"
+msgstr "Control de calidad"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_sale_order
+msgid "Quotation"
+msgstr "Presupuesto"
+
+#. module: sale_helpdesk_extend
+#: selection:project.project,stage:0
+msgid "SAT"
+msgstr "Servicios"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_sales_agent_id
+msgid "Salesperson"
+msgstr "Comercial"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Satisfacció"
+msgstr "Satisfacció"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Satisfacció post venta"
+msgstr "Satisfacció post venta"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_satisfaction
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_satisfaction
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_tree
+msgid "Satisfaction"
+msgstr "Satisfaction"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Software / Axis S.O."
+msgstr "Software / Axis S.O."
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Software / Helix"
+msgstr "Software / Helix"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Software / S.O."
+msgstr "Software / S.O."
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Software / SR7"
+msgstr "Software / SR7"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Software / VaxALPR"
+msgstr "Software / VaxALPR"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Software / onCamera"
+msgstr "Software / onCamera"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Software Exacq"
+msgstr "Software Exacq"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_stage_is_solved
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.sale_helpdesk_ticket_view_form
+msgid "Solved"
+msgstr "Solved"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_helpdesk_stage
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_project_project_stage
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.project_project_search_view
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Stage Name"
+msgstr "Stage Name"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_subtype_ids
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.hr_timesheet_line_search_inherit_groupby
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.sale_helpdesk_ticket_view_form
+msgid "Subtype"
+msgstr "Subtipo"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.sale_helpdesk_ticket_view_form
+msgid "Subtype Selection"
+msgstr "Subtype Selection"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Subtypes"
+msgstr "Subtypes"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Sum hours dedicated"
+msgstr "Sum hours dedicated"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_project_task_task_amount
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.helpdesk_ticket_view_list_inherit
+msgid "Task Amount"
+msgstr "Task Amount"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,help:sale_helpdesk_extend.field_helpdesk_ticket_sales_agent_id
+msgid "The internal user that is in charge of communicating with this contact if any."
+msgstr "El usuario interno encargado de comunicarse con este contacto si lo hubiese."
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_helpdesk_ticket
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Ticket"
+msgstr "Ticket"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Ticket Count"
+msgstr "Ticket Count"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_account_analytic_line_ticket_filter_type_id
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.hr_timesheet_line_search_inherit_groupby
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Ticket Type"
+msgstr "Tipo de ticket"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Ticket type"
+msgstr "Ticket type"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "To"
+msgstr "Para"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_report_end_date
+msgid "To Date"
+msgstr "To Date"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_total_time
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_total_time
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.ticket_report_template
+msgid "Total Spent Time"
+msgstr "Total Spent Time"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_helpdesk_ticket_total_time
+msgid "Total Time Spent"
+msgstr "Total Time Spent"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.view_partner_form
+msgid "Usabilitat"
+msgstr "Usabilitat"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_partner_useit
+#: model:ir.model.fields,field_description:sale_helpdesk_extend.field_res_users_useit
+msgid "Useit"
+msgstr "Useit"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Vandalisme"
+msgstr "Vandalisme"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Xarxa / Altres"
+msgstr "Xarxa / Altres"
+
+#. module: sale_helpdesk_extend
+#: selection:helpdesk.ticket,subtype_ids:0
+msgid "Xarxa / Antenes"
+msgstr "Xarxa / Antenes"
+
+#. module: sale_helpdesk_extend
+#: code:addons/sale_helpdesk_extend/models/helpdesk_stage.py:30
+#, python-format
+msgid "You cannot activate more than one Solved stage."
+msgstr "You cannot activate more than one Solved stage."
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_helpdesk_subtype
+msgid "helpdesk.subtype"
+msgstr "helpdesk.subtype"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_helpdesk_ticket_report
+msgid "helpdesk.ticket.report"
+msgstr "helpdesk.ticket.report"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_project_stage
+msgid "project.stage"
+msgstr "project.stage"
+
+#. module: sale_helpdesk_extend
+#: model:ir.model,name:sale_helpdesk_extend.model_report_sale_helpdesk_extend_ticket_report_template
+msgid "report.sale_helpdesk_extend.ticket_report_template"
+msgstr "report.sale_helpdesk_extend.ticket_report_template"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.hr_timesheet_line_search_inherit_groupby
+msgid "using for group by in Sub Type  type"
+msgstr "using for group by in Sub Type  type"
+
+#. module: sale_helpdesk_extend
+#: model:ir.ui.view,arch_db:sale_helpdesk_extend.hr_timesheet_line_search_inherit_groupby
+msgid "using for group by in Ticket type"
+msgstr "using for group by in Ticket type"
+

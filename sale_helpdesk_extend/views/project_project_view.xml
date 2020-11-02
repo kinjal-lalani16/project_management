@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Inherited form view of Project project-->
+    <record id="project_project_form_view" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <field name="stage" widget="statusbar" clickable="True"/>
+                </header>
+            </xpath>
+		</field>
+    </record>
+
+    <!-- Inherited tree view of Project project-->
+    <record id="project_project_tree_view" model="ir.ui.view">
+        <field name="name">project.project.tree</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="stage"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherited kanban view of Project project-->
+    <record id="project_project_kanban_view" model="ir.ui.view">
+        <field name="name">project.project.kanban</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="default_group_by">stage</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited dashboard view of Project project-->
+    <record id="project_project_dashboard_view" model="ir.ui.view">
+        <field name="name">project.project.dashboard</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="default_group_by">stage</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited search view of Project project-->
+    <record id="project_project_search_view" model="ir.ui.view">
+        <field name="name">project.project.search</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Stage" name="Stage" context="{'group_by':'stage'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
