@@ -12,6 +12,21 @@
                     <field name="stage" widget="statusbar" clickable="True"/>
                 </header>
             </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <div>
+                    <label for="create_date" class="oe_inline" string="Create date: "/>
+                    <field name="create_date" class="oe_inline oe_input_align" widget='date' readonly='1'/>
+                </div>
+                <div>
+                    <label for="end_date" class="oe_inline" string="End date: "/>
+                    <field name="end_date" class="oe_inline oe_input_align"/>
+                </div>
+                <div>
+                    <label for="number_of_days" class="oe_inline"
+                        string="Number of days: "/>
+                    <field name="number_of_days" class="oe_inline oe_input_align"/>
+                </div>
+            </xpath>
 		</field>
     </record>
 
